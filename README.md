@@ -1,8 +1,8 @@
 # VendeX
 
 # First Commit:
-    -   Implement the `/users/invalidateToken/:id` endpoint. The endpoint should invalidate the JWT that is associated 
-        with the   user of id `id`.
+    -   Implement the `/users/invalidateToken/:id` endpoint. The endpoint should invalidate 
+        the JWT that is associated with the   user of id `id`.
 
 # Second Commit: 
     -   Add a many-to-many relationship between users and company.
