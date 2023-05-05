@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const { PrismaClient } = require('@prisma/client');
 const authenticate = require('./authenticate');
 const bodyParser = require('body-parser');
+
 const bcrypt = require('bcrypt');
 
 const app = express();
