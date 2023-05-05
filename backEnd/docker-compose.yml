@@ -1,0 +1,26 @@
+version: '3'
+services:
+    backend:
+        build:
+            context: .
+            dockerfile: ./docker/backend
+        ports:
+            - '3000:3000'
+        volumes:
+            - .:/app
+        restart: always
+        depends_on:
+            - db
+        env_file: ./docker/env/backend.env
+
+    db:
+        image: postgres
+        env_file: ./docker/env/postgres.env
+        volumes:
+            - db-data:/var/lib/postgresql/data
+        restart: always
+        ports:
+            - '5433:5432'
+
+volumes:
+    db-data:
