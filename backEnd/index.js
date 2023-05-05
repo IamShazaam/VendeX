@@ -60,17 +60,33 @@ app.post('/users/login/:id', async (req, res) => {
 
 
 //Get all users - Jorge's edit.
+// app.get('/users', authenticate, async (_, res) => {
+//     try {
+//       const allUsers = await prisma.user.findMany({
+//         include: { companies: true }
+//       });
+//       res.json(allUsers);
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).json({ message: 'Failed to retrieve users.' });
+//     }
+//   });
+
+
+//Get all users - Jorge's edit x2
 app.get('/users', authenticate, async (_, res) => {
     try {
       const allUsers = await prisma.user.findMany({
-        include: { companies: true }
+        include: {
+          companies: true
+        }
       });
       res.json(allUsers);
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Failed to retrieve users.' });
     }
-  });
+});
   
 
 // Invalidate JWT - Jorge's edit.
