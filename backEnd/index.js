@@ -38,7 +38,7 @@ app.post('/users', async (req, res) => {
             data: {
                 name,
                 email,
-                password: hashedPassword, // save the hashed password to the database
+                password: hashedPassword, 
             },
         });
         res.json(newUser);
