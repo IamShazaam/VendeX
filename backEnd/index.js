@@ -106,37 +106,6 @@ app.post('/users/login', async (req, res) => {
 //     }
 // });
 
-
-//Get all users - Jorge's edit.
-// app.get('/users', authenticate, async (_, res) => {
-//     try {
-//       const allUsers = await prisma.user.findMany({
-//         include: { companies: true }
-//       });
-//       res.json(allUsers);
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).json({ message: 'Failed to retrieve users.' });
-//     }
-//   });
-
-
-//Get all users - Jorge's edit x2
-// app.get('/users', authenticate, async (_, res) => {
-//     try {
-//       const allUsers = await prisma.user.findMany({
-//         include: {
-//           companies: true
-//         }
-//       });
-//       res.json(allUsers);
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).json({ message: 'Failed to retrieve users.' });
-//     }
-// });
-  
-
 //Get all users - Jorge's edit x3
 app.get('/users', authenticate, async (_, res) => {
     try {
@@ -164,21 +133,6 @@ app.get('/users', authenticate, async (_, res) => {
     }
 });
 
-//Get all users - Jorge's edit x4
-// app.get('/users', authenticate, async (req, res) => {
-//     try {
-//         const userId = req.user.userId;
-//         const user = await prisma.user.findUnique({
-//             where: { id: userId },
-//             include: { companies: true }
-//         });
-//         res.json(user);
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ message: 'Failed to retrieve user data.' });
-//     }
-// });
-
 // Invalidate JWT - Jorge's edit.
 app.post('/users/invalidateToken/:id', authenticate, async (req, res) => {
     const { id } = req.params;
@@ -197,11 +151,6 @@ app.post('/users/invalidateToken/:id', authenticate, async (req, res) => {
         console.error(error);
         res.status(500).json({ message: 'Failed to invalidate JWT.' });
     }
-});
-
-// Invalidate JWT
-app.post('/users/invalidateToken/:id', authenticate, async (req, res) => {
-    // TODO: Implement
 });
 
 app.listen(3000, () => {
